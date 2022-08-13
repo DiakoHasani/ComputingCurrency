@@ -1,0 +1,128 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <div class="card mt-3">
+                    <div class="card-header bg-primary text-white">
+                        Buy Tether
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="currencyBuyTether" class="form-label">Currency</label>
+                                <input type="text" class="form-control" placeholder="enter currency value"
+                                    id="currencyBuyTether">
+                            </div>
+                            <div class="mb-3">
+                                <label for="amountBuyTether" class="form-label">Amount</label>
+                                <input type="text" class="form-control" placeholder="enter amount value"
+                                    id="amountBuyTether">
+                            </div>
+                            <button class="btn btn-primary">Buy</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card mt-3">
+                    <div class="card-header bg-primary text-white">
+                        Sell Tether
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="currencySellTether" class="form-label">Currency</label>
+                                <input type="text" class="form-control" placeholder="enter currency value"
+                                    id="currencySellTether">
+                            </div>
+                            <div class="mb-3">
+                                <label for="amountSellTether" class="form-label">Amount</label>
+                                <input type="text" class="form-control" placeholder="enter amount value"
+                                    id="amountSellTether">
+                            </div>
+                            <button class="btn btn-primary">Sell</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="card mt-3">
+                    <div class="card-header bg-danger text-white">
+                        Buy Voucher
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="currencyBuyVoucher" class="form-label">Currency</label>
+                                <input type="text" class="form-control" placeholder="enter currency value"
+                                    id="currencyBuyVoucher">
+                            </div>
+                            <div class="mb-3">
+                                <label for="amountBuyVoucher" class="form-label">Amount</label>
+                                <input type="text" class="form-control" placeholder="enter amount value"
+                                    id="amountBuyVoucher">
+                            </div>
+                            <button class="btn btn-danger">Buy</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card mt-3">
+                    <div class="card-header bg-danger text-white">
+                        Sell Voucher
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="currencySellVoucher" class="form-label">Currency</label>
+                                <input type="text" class="form-control" placeholder="enter currency value"
+                                    id="currencySellVoucher">
+                            </div>
+                            <div class="mb-3">
+                                <label for="amountSellVoucher" class="form-label">Amount</label>
+                                <input type="text" class="form-control" placeholder="enter amount value"
+                                    id="amountSellVoucher">
+                            </div>
+                            <button class="btn btn-danger">Sell</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/computing-currency.js"></script>
+
+    <script>
+        let computingCuurencyBuyTether = new ComputingCurrency($('#amountBuyTether'), $('#currencyBuyTether'), 32000);
+        computingCuurencyBuyTether.start();
+
+        let computingCuurencySellTether = new ComputingCurrency($('#amountSellTether'), $('#currencySellTether'), 31000);
+        computingCuurencySellTether.start();
+
+        let computingCuurencyBuyVoucher = new ComputingCurrency($('#amountBuyVoucher'), $('#currencyBuyVoucher'), 30000);
+        computingCuurencyBuyVoucher.setDecimalCurrencyLength(2);
+        computingCuurencyBuyVoucher.start();
+
+        let computingCuurencySellVoucher = new ComputingCurrency($('#amountSellVoucher'), $('#currencySellVoucher'), 29500);
+        computingCuurencySellVoucher.setDecimalCurrencyLength(2);
+        computingCuurencySellVoucher.start();
+    </script>
+</body>
+
+</html>
